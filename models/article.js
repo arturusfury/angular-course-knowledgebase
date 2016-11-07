@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var articleSchema = mongoose.Schema({
   title: {
     type: String,
-    index, true,
+    index: true,
     required: true
   },
   body: {
@@ -12,11 +12,11 @@ var articleSchema = mongoose.Schema({
   },
   category: {
     type: String,
-    index, true,
+    index: true,
     required: true
   },
   date: {
-    type: date,
+    type: Date,
     default: Date.now
   }
 });
@@ -31,7 +31,7 @@ module.exports.getArticleById = function(id, callback) {
   Article.findById(id, callback);
 }
 
-module.exports.getCategoryArticles = function(category, callback) {
+module.exports.getArticlesbyCategory = function(category, callback) {
   var query = {category: category}
   Article.find(query, callback);
 }
