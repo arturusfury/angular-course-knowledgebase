@@ -41,12 +41,12 @@ app.config(['$routeProvider', function($routeProvider) {
 
     .when('/articles/new', {
       templateUrl: 'views/add_article.view.html',
-      controller: 'ArticlesCreateCtrl'
+      controller: 'ArticleCreateCtrl'
     })
 
     .when('/articles/edit/:id', {
       templateUrl: 'views/edit_articles.view.html',
-      controller: 'ArticlesEditCtrl'
+      controller: 'ArticleEditCtrl'
     })
 
     .otherwise({redirectTo: '/categories'});
