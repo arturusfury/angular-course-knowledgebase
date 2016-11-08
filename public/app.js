@@ -12,12 +12,12 @@ app.config(['$routeProvider', function($routeProvider) {
       controller: 'CategoryDetailsCtrl'
     })
 
-    .when('/categories/new', {
+    .when('/category/new', {
       templateUrl: 'views/add_category.view.html',
       controller: 'CategoryCreateCtrl'
     })
 
-    .when('/categories/edit/:id', {
+    .when('/category/edit/:id', {
       templateUrl: 'views/edit_categories.view.html',
       controller: 'CategoryEditCtrl'
     })
@@ -39,13 +39,13 @@ app.config(['$routeProvider', function($routeProvider) {
       controller: 'ArticlesCategoryCtrl'
     })
 
-    .when('/articles/new', {
+    .when('/article/new', {
       templateUrl: 'views/add_article.view.html',
       controller: 'ArticleCreateCtrl'
     })
 
-    .when('/articles/edit/:id', {
-      templateUrl: 'views/edit_articles.view.html',
+    .when('/article/edit/:id', {
+      templateUrl: 'views/edit_article.view.html',
       controller: 'ArticleEditCtrl'
     })
 

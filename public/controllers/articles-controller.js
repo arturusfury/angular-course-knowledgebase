@@ -16,6 +16,10 @@ angular.module('kB')
     $http.get('/articles/' + $routeParams.id).success(function(data){
       $scope.article = data;
     });
+
+    $scope.removeArticle = function () {
+
+    }
   }])
 
   .controller('ArticleCreateCtrl', ['$scope', '$http', '$routeParams', '$location', function($scope, $http, $routeParams, $location) {
@@ -31,9 +35,30 @@ angular.module('kB')
       }
 
       $http.post('/articles', data).success(function(data, status){
-        console.log(status);
+        $location.path('#/articles/details/' + data.id);
       });
+    }
+  }])
 
-      $location.path('/articles');
+  .controller('ArticleEditCtrl', ['$scope', '$http', '$routeParams', '$location', function($scope, $http, $routeParams, $location) {
+    $http.get('/articles/' + $routeParams.id).success(function(data){
+      $scope.article = data;
+    });
+
+    $http.get('/categories').success(function(data){
+      $scope.categories = data;
+    });
+
+    $scope.editArticle = function() {
+      var data = {
+        id: $routeParams.id,
+        title: $scope.article.title,
+        body: $scope.article.body,
+        category: $scope.article.category
+      }
+
+      $http.put('/articles', data).success(function(data, status){
+        $location.path('/articles/' + $routeParams.id);
+      });
     }
   }])
